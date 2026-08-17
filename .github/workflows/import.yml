@@ -1,0 +1,29 @@
+name: Import Stitch Market app
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and unpack Stitch Market
+        run: |
+          curl -L --fail https://litter.catbox.moe/z2pguk.zip -o /tmp/stitch-market.zip
+          unzip -o /tmp/stitch-market.zip -d .
+          rm -f /tmp/stitch-market.zip
+      - name: Commit application files
+        run: |
+          git config user.name "Stitch Market Setup"
+          git config user.email "setup@stitch.market"
+          git add .
+          git commit -m "Add full Stitch Market application"
+          git push
