@@ -1,0 +1,28 @@
+{
+  "name": "stitch-market",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20 <23"
+  },
+  "scripts": {
+    "dev": "node server/index.js",
+    "build": "vite build",
+    "test": "node --test tests/api.test.js",
+    "start": "NODE_ENV=production node server/index.js"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "bcryptjs": "latest",
+    "express": "latest",
+    "jsonwebtoken": "latest",
+    "pdfkit": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "supertest": "latest"
+  }
+}
